@@ -6,8 +6,24 @@
 	<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
 	<script>
 		$(function() {
-			alert("Hello jquery!")
+			alert("Hello js1!");
 		});
+
+		window.onload = function() {
+			alert("Hello js2!");
+		}
+
+		jQuery(document).ready(function() {
+			alert("Hello jquery!");
+		})
+
+		$(document).ready(function() {
+			alert("Hello jquery2!");
+		})
+
+		$(function() {
+			alert("Hello jquery3!");
+		})
 	</script>
 </head>
 <body>

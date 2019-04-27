@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jquery for beginner</title>
+	<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+	<script>
+        function writel() {
+            document.getElementById("span1").innerHTML="mmemo!";
+            
+            var spanEle = document.getElementById("span1");
+
+            $(spanEle).html("yayayi!");
+        
+        }
+
+        $(function() {
+            $("#btn").click(function() {
+                // $("span1").innerHTML="heeeee!";
+                $("#span1").html("heeee!");
+
+                $("#span1").get(0).innerHTML="hello!";
+
+                $("#span1")[0].innerHTML="hi!";
+            });
+        });
+	</script>
+</head>
+<body>
+    <input type="button" value="JS input!" onclick="writel()"/>
+    <input type="button" value="JQ input!" id="btn"/><br />
+    班长 <span id="span1">你好！</span>
+
+</body>
+</html>
