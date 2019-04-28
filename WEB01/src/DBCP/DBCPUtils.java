@@ -19,10 +19,8 @@ public class DBCPUtils {
 			props.load(in);
 			dataSource = BasicDataSourceFactory.createDataSource(props);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
