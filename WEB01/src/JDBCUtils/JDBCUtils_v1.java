@@ -1,4 +1,4 @@
-package JDBCUtils_2;
+package JDBCUtils;
 
 import java.sql.DriverManager;
 import java.sql.ResultSet;

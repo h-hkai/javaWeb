@@ -6,8 +6,6 @@ import java.sql.SQLException;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
-import JDBCUtils_2.JDBCUtils_v1;
-
 public class test {
 	
 	public static void main(String[] args) {

@@ -47,7 +47,7 @@ public class JDBCUtils_v3 {
 	}
 	
 
-	public static void release(Connection con, PreparedStatement pstmt, ResultSet rs) {
+	public static void release(java.sql.Connection con, PreparedStatement pstmt, ResultSet rs) {
 		if (rs != null) {
 			try {
 				rs.close();
@@ -55,6 +55,25 @@ public class JDBCUtils_v3 {
 				e.printStackTrace();
 			}
 		}
+		if (pstmt != null) {
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		if (con != null) {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public static void release(java.sql.Connection con, PreparedStatement pstmt) {
 		if (pstmt != null) {
 			try {
 				pstmt.close();
