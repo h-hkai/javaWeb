@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE web-app SYSTEM "web-app.dtd">
+
+<web-app>
+	<servlet>
+		<servlet-name>
+		
+		</servlet-name>
+	</servlet>
+</web-app>

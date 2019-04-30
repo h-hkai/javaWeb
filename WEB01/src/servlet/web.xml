@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<web-app>
+	<servlet>
+		<servlet-name>MyServlet1</servlet-name>
+		<servlet-class>servlet.MyServlet1</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyServlet1</servlet-name>
+		<servlet-pattern>/myServlet1</servlet-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MyServlet2</servlet-name>
+		<servlet-class>servlet.MyServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MyServlet2</servlet-name>
+		<servlet-pattern>/myServlet2</servlet-pattern>
+	</servlet-mapping>
+</web-app>
