@@ -10,17 +10,25 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class C3P0Utils {
 	
-	private static ComboPooledDataSource ds = new ComboPooledDataSource();
-	
+//	private static ComboPooledDataSource ds = new ComboPooledDataSource();
+//	
+//	static {
+//        try {
+//			ds.setDriverClass("com.mysql.jdbc.Driver");
+//			ds.setJdbcUrl("jdbc:mysql://localhost:3306/web002");
+//	        ds.setUser("root");
+//	        ds.setPassword("028110");
+//		} catch (PropertyVetoException e) {
+//			e.printStackTrace();
+//		}
+//	}
+//	
+
+	private static DataSource ds;
+ 
+//	private static ThreadLocal<Connection> tl = new ThreadLocal<Connection>(); // map
 	static {
-        try {
-			ds.setDriverClass("com.mysql.jdbc.Driver");
-			ds.setJdbcUrl("jdbc:mysql://localhost:3306/web002");
-	        ds.setUser("root");
-	        ds.setPassword("028110");
-		} catch (PropertyVetoException e) {
-			e.printStackTrace();
-		}
+		ds = new ComboPooledDataSource();
 	}
 	
 	public static DataSource getDataSource() {
