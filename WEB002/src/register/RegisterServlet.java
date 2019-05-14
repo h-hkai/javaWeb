@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.dbutils.QueryRunner;
 
-import Utils.C3P0Utils;
 import Utils.C3P0Utils2;
 
 @WebServlet("/RegisterServlet")
@@ -48,17 +47,19 @@ public class RegisterServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		user.setUid(9);
+//		user.setUid(null);
 		
 		regist(user);
+		
+		response.sendRedirect(request.getContextPath() + "/login.jsp");
 		
 	}
 
 	public void regist(User user) {
 		QueryRunner runner = new QueryRunner(C3P0Utils2.getDataSource());
-		String sql = "insert into users values(?, ?, ?)";
+		String sql = "insert into users (uname, password) values (?, ?)";
 		try {
-			runner.update(sql, user.getUid(), user.getUsername(), user.getPassword());
+			runner.update(sql, user.getUsername(), user.getPassword());
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

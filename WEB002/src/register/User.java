@@ -1,9 +1,7 @@
 package register;
 
-import java.util.UUID;
-
 public class User {
-	private int uid;
+	private Integer uid = null;
 	private String username;
 	private String password;
 	
@@ -19,13 +17,6 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getUid() {
-		return uid;
-	}
-	public void setUid(int uuid) {
-		this.uid = uuid;
-	}
-	
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", password=" + password + "]";
