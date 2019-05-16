@@ -1,20 +1,20 @@
 package domain;
 
 public class User {
-	private int id;
-	private String username;
+	private int uid;
+	private String uname;
 	private String password;
-	public int getId() {
-		return id;
+	public int getUid() {
+		return uid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setUid(int uid) {
+		this.uid = uid;
 	}
-	public String getUsername() {
-		return username;
+	public String getUname() {
+		return uname;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUname(String uname) {
+		this.uname = uname;
 	}
 	public String getPassword() {
 		return password;
@@ -24,7 +24,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + "]";
+		return "User [uid=" + uid + ", uname=" + uname + ", password=" + password + "]";
 	}
 	
 	
