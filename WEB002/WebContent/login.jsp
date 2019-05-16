@@ -31,7 +31,7 @@
 		用户名：<input type="text" name="username" /> <br /> 
 		密码：<input type="password" name="password" /> <br /> 
 		验证码：<input type="text" name="verifyCode" size="5" /> 
-		<img onclick="changeImg(this)" src="/WEB002/VerifyCodeServlet" /> <br /> 
+		<img src="/WEB002/VerifyCodeServlet" onclick="changeImg(this)"/> <br /> 
 		<input type="submit" value="提交" />
 	</form>
 </body>
