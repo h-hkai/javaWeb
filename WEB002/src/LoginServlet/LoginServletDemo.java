@@ -27,6 +27,7 @@ public class LoginServletDemo extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 
@@ -34,8 +35,7 @@ public class LoginServletDemo extends HttpServlet {
 		User user = null;
 		
 		int count = (int) this.getServletContext().getAttribute("count");
-		
-		
+
 		try {
 			QueryRunner runner = new QueryRunner(C3P0Utils.getDataSource());
 			user = runner.query(sql, new BeanHandler<User>(User.class), username, password);

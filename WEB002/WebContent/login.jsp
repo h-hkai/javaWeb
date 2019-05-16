@@ -28,6 +28,7 @@
 
 	<form action="/WEB002/LoginError" method="post">
 		<div><%=request.getAttribute("loginInfo")==null?"":request.getAttribute("loginInfo")%></div>
+		<div><%=request.getAttribute("verifyCodeInfo")==null?"":request.getAttribute("verifyCodeInfo")%></div>
 		用户名：<input type="text" name="username" /> <br /> 
 		密码：<input type="password" name="password" /> <br /> 
 		验证码：<input type="text" name="verifyCode" size="5" /> 

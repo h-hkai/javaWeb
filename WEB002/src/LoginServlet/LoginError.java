@@ -15,25 +15,22 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import Utils.C3P0Utils;
 import register.User;
 
-/**
- * Servlet implementation class LoginError
- */
 @WebServlet("/LoginError")
 public class LoginError extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public LoginError() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String verifyCode = request.getParameter("verifyCode");
+		String checkVerifyCode = (String)request.getSession().getAttribute("sessionCacheData");
+		if (!checkVerifyCode.equals(verifyCode)) {
+			request.setAttribute("verifyCodeInfo", "Your verifyCode Error!");
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+			return ;
+		}
+
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
@@ -45,7 +42,7 @@ public class LoginError extends HttpServlet {
 		}
 		
 		if (user != null) {
-			response.sendRedirect("https://www.baidu.com");
+			response.sendRedirect("/WEB002");
 		} else {
 //			response.getWriter().write("Login Error");
 //			response.sendRedirect(request.getContextPath()+"/register.html");
@@ -63,11 +60,7 @@ public class LoginError extends HttpServlet {
 		return user;
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
