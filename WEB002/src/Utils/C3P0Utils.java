@@ -1,6 +1,5 @@
 package Utils;
 
-import java.beans.PropertyVetoException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -42,4 +41,5 @@ public class C3P0Utils {
 			throw new RuntimeException(e);
 		}
 	}
+
 }
