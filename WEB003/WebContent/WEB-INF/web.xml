@@ -19,4 +19,14 @@
     <servlet-name>ProductServlet</servlet-name>
     <url-pattern>/ProductServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TransferServlet</display-name>
+    <servlet-name>TransferServlet</servlet-name>
+    <servlet-class>web.TransferServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TransferServlet</servlet-name>
+    <url-pattern>/TransferServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
