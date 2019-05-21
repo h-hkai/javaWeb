@@ -33,6 +33,10 @@ public class MyDataSourceUtils {
 	}
 
 	public static void commit() throws SQLException {
-		getCurConnection().commit();
+		Connection conn = getCurConnection();
+		conn.commit();
+		
+		tl.remove();
+		conn.close();
 	}
 }
