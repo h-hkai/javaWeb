@@ -10,7 +10,14 @@
 	src="${pageContext.request.contextPath}/js/public.js"></script>
 <script type="text/javascript">
 	function addProduct() {
-		window.location.href = "${pageContext.request.contextPath}/admin/product/add.jsp";
+		window.location.href = "${pageContext.request.contextPath}/adminAddProductUI";
+	}
+	
+	function delProduct(pid) {
+		var isDel = confirm("Do you want to delete?")
+		if (isDel) {
+			location.href = "${pageContext.request.contextPath}/adminDelProduct?pid=" + pid;
+		}
 	}
 </script>
 </HEAD>
@@ -56,24 +63,24 @@
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 										width="18%">${vs.count }</td>
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-										width="17%"><img width="40" height="45" src="${pageContext.request.contextPath }/${pro.pimage }"></td>
+										width="17%"><img width="40" height="45" src="${pageContext.request.contextPath }/${pro.pid }"></td>
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 										width="17%">${pro.pname }</td>
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 										width="17%">${pro.shop_price }</td>
 									<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 										width="17%">${pro.is_hot == 1 ? "Yes" : "No" }</td>
-									<td align="center" style="HEIGHT: 22px"><a
-										href="${ pageContext.request.contextPath }/admin/product/edit.jsp">
-											<img
-											src="${pageContext.request.contextPath}/images/i_edit.gif"
-											border="0" style="CURSOR: hand">
-									</a></td>
+									<td align="center" style="HEIGHT: 22px">
+										<a href="${ pageContext.request.contextPath }/adminUpdateProductUI?pid=${pro.pid}">
+											<img src="${pageContext.request.contextPath}/images/i_edit.gif" border="0" style="CURSOR: hand">
+										</a>
+									</td>
 
-									<td align="center" style="HEIGHT: 22px"><a href="#"> <img
-											src="${pageContext.request.contextPath}/images/i_del.gif"
-											width="16" height="16" border="0" style="CURSOR: hand">
-									</a></td>
+									<td align="center" style="HEIGHT: 22px">
+										<a href="javascript:void(0);" onclick="delProduct('${pro.pid}')"> 
+											<img src="${pageContext.request.contextPath}/images/i_del.gif" width="16" height="16" border="0" style="CURSOR: hand">
+										</a>
+									</td>
 								</tr>
 							</c:forEach>
 							

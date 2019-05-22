@@ -40,6 +40,56 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>AdminProductListServlet</servlet-name>
-    <url-pattern>/AdminProductListServlet</url-pattern>
+    <url-pattern>/adminProductListServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminAddProductUI</display-name>
+    <servlet-name>AdminAddProductUI</servlet-name>
+    <servlet-class>web.AdminAddProductUI</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminAddProductUI</servlet-name>
+    <url-pattern>/adminAddProductUI</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminAddProduct</display-name>
+    <servlet-name>AdminAddProduct</servlet-name>
+    <servlet-class>web.AdminAddProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminAddProduct</servlet-name>
+    <url-pattern>/adminAddProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminDelProduct</display-name>
+    <servlet-name>AdminDelProduct</servlet-name>
+    <servlet-class>web.AdminDelProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminDelProduct</servlet-name>
+    <url-pattern>/adminDelProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminUpdateProductUI</display-name>
+    <servlet-name>AdminUpdateProductUI</servlet-name>
+    <servlet-class>web.AdminUpdateProductUI</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminUpdateProductUI</servlet-name>
+    <url-pattern>/adminUpdateProductUI</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminUpdateProduct</display-name>
+    <servlet-name>AdminUpdateProduct</servlet-name>
+    <servlet-class>web.AdminUpdateProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminUpdateProduct</servlet-name>
+    <url-pattern>/adminUpdateProduct</url-pattern>
   </servlet-mapping>
 </web-app>

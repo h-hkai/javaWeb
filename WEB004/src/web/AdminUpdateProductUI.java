@@ -9,29 +9,39 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import domain.Category;
 import domain.Product;
 import service.AdminProductService;
 
-public class AdminProductListServlet extends HttpServlet {
+public class AdminUpdateProductUI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public AdminProductListServlet() {
+    public AdminUpdateProductUI() {
         super();
     }
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String pid = request.getParameter("pid");
+		
 		AdminProductService service = new AdminProductService();
-		List<Product> productList = null;
+		Product product = null;
 		try {
-			 productList = service.findAllProduct();
+			product = service.findProductByPid(pid);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("productList", productList);
-		request.getRequestDispatcher("/admin/product/list.jsp").forward(request, response);
-	
+		List<Category> categoryList = null;
+		try {
+			categoryList = service.findAllCategory();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("categoryList", categoryList);
+		request.setAttribute("product", product);
+		
+		request.getRequestDispatcher("/admin/product/edit.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

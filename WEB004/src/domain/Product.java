@@ -1,7 +1,7 @@
 package domain;
 
-import java.util.Date;
 import java.util.Locale.Category;
+import java.util.UUID;
 
 /**
  *
@@ -34,7 +34,7 @@ public class Product {
     /**
      *上架时间
      */
-    private Date pdate;
+    private String pdate;
     /**
      *是否热门
      */
@@ -50,7 +50,7 @@ public class Product {
     /**
      *类别的对象
      */
-    private Category category;
+    private String cid;
 
 
     public String getPid() {
@@ -93,11 +93,11 @@ public class Product {
         this.pimage = pimage;
     }
 
-    public Date getPdate() {
+    public String getPdate() {
         return pdate;
     }
 
-    public void setPdate(Date pdate) {
+    public void setPdate(String pdate) {
         this.pdate = pdate;
     }
 
@@ -125,11 +125,20 @@ public class Product {
         this.pflag = pflag;
     }
 
-    public Category getCategory() {
-        return category;
-    }
+	public String getCid() {
+		return cid;
+	}
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+	public void setCid(String cid) {
+		this.cid = cid;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [pid=" + pid + ", pname=" + pname + ", market_price=" + market_price + ", shop_price="
+				+ shop_price + ", pimage=" + pimage + ", pdate=" + pdate + ", is_hot=" + is_hot + ", pdesc=" + pdesc
+				+ ", pflag=" + pflag + ", cid=" + cid + "]";
+	}
+
+    
 }
