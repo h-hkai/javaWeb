@@ -40,14 +40,14 @@ body {
 			</ol>
 		</div>
 
-		<c:forEach var="product" items="${pageBean.list}">
-
+		<c:forEach var="product" items="${pageBean.productList }">
 			<div class="col-md-2" style="height: 250px">
-				<a href="${pageContext.request.contextPath}/product?method=productInfo&pid=${product.pid}&cid=${cid}&currentPage=${pageBean.currentPage}"> <img src="${pageContext.request.contextPath}/${product.pimage}"
+				<a href="${pageContext.request.contextPath}/product?method=productInfo&pid=${product.pid}&cid=${product.cid}&currentPage=${pageBean.currentPage}"> <img src="https://img10.360buyimg.com/n7/jfs/t1/3405/18/3537/69901/5b997c0aE5dc8ed9f/a2c208410ae84d1f.jpg"
 												 width="170" height="170" style="display: inline-block;">
+					
 				</a>
 				<p>
-					<a href="${pageContext.request.contextPath}/product?method=productInfo&pid=${product.pid}&cid=${cid}&currentPage=${pageBean.currentPage}" style='color: green'>${product.pname}</a>
+					<a href="${pageContext.request.contextPath}/product?method=productInfo&pid=${product.pid}&cid=${product.cid}&currentPage=${pageBean.currentPage}" style='color: green'>${product.pname}</a>
 				</p>
 				<p>
 					<font color="#FF0000">商城价：${product.shop_price}</font>
@@ -76,12 +76,10 @@ body {
 					aria-hidden="true">&laquo;</span></a></li>
 			--%>
 			<c:if test="${pageBean.currentPage==1}">
-				<li class="disabled"><a href="javascript:void(0);" aria-label="Previous"><span
-						aria-hidden="true">&laquo;</span></a></li>
+				<li class="disabled"><a href="javascript:void(0);" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 			</c:if>
 			<c:if test="${pageBean.currentPage!=1}">
-				<li class="disabled"><a href="${pageContext.request.contextPath}/product?method=productList&cid=${cid}&currentPage=${pageBean.currentPage-1}" aria-label="Previous"><span
-						aria-hidden="true">&laquo;</span></a></li>
+				<li class="disabled"><a href="${pageContext.request.contextPath}/productListServlet?currentPage=${pageBean.currentPage-1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 			</c:if>
 
 
@@ -93,7 +91,7 @@ body {
 				</c:if>
 				<%--如果不是当前页，点击跳转到该页--%>
 				<c:if test="${page!=pageBean.currentPage}">
-					<li><a href="${pageContext.request.contextPath}/product?method=productList&cid=${cid}&currentPage=${page}">${page}</a></li>
+					<li><a href="${pageContext.request.contextPath}/productListServlet?currentPage=${page}">${page}</a></li>
 				</c:if>
 
 			</c:forEach>
@@ -109,7 +107,7 @@ body {
 				</a></li>
 			</c:if>
 			<c:if test="${pageBean.currentPage!=pageBean.totalPage}">
-				<li><a href="${pageContext.request.contextPath}/product?method=productList&cid=${cid}&currentPage=${pageBean.currentPage+1}" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+				<li><a href="${pageContext.request.contextPath}/productListServlet?currentPage=${pageBean.currentPage+1}" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 				</a></li>
 			</c:if>
 

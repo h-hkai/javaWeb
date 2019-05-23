@@ -4,10 +4,10 @@
 <HEAD>
 <meta http-equiv="Content-Language" content="zh-cn">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="${pageContext.request.contextPath}/css/Style1.css"
-	rel="stylesheet" type="text/css" />
-<script language="javascript"
-	src="${pageContext.request.contextPath}/js/public.js"></script>
+<link href="${pageContext.request.contextPath}/css/Style1.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="${pageContext.request.contextPath}/js/public.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js"></script>
+
 <script type="text/javascript">
 	function addProduct() {
 		window.location.href = "${pageContext.request.contextPath}/adminAddProductUI";
@@ -19,14 +19,34 @@
 			location.href = "${pageContext.request.contextPath}/adminDelProduct?pid=" + pid;
 		}
 	}
+	
+	$(function() {
+		$("#is_hot option[value='${condition.is_hot}']").prop("selected", true);
+		$("#cid option[value='${condition.cid}']").prop("selected", true);
+	});
 </script>
 </HEAD>
 <body>
 	<br>
 	<form id="Form1" name="Form1"
-		action="${pageContext.request.contextPath}/user/list.jsp"
+		action="${pageContext.request.contextPath}/adminSearchProduct"
 		method="post">
-		<table cellSpacing="1" cellPadding="0" width="100%" align="center"
+		
+		商品名称：<input type="text" name="pname" value="${condition.pname }">&nbsp;&nbsp;
+		是否热门：<select id="is_hot" name="is_hot">
+			<option value="">不限</option>
+			<option value="0">否</option>
+			<option value="1">是</option>
+		</select>&nbsp;&nbsp;
+		商品类别：<select id="cid" name="cid">
+			<option value="">不限</option>
+			<c:forEach items="${categoryList }" var="category">
+				<option value="${category.cid }">${category.cname }</option>
+			</c:forEach>
+		</select>&nbsp;&nbsp;
+		<input type="submit" value="Search">
+		
+		<table style="margin-top: 10px" cellSpacing="1" cellPadding="0" width="100%" align="center"
 			bgColor="#f5fafe" border="0">
 			<TBODY>
 				<tr>

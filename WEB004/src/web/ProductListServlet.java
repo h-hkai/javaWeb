@@ -9,38 +9,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.Category;
 import domain.Product;
 import service.AdminProductService;
+import vo.PageBean;
 
-public class AdminProductListServlet extends HttpServlet {
+public class ProductListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public AdminProductListServlet() {
+    public ProductListServlet() {
         super();
     }
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AdminProductService service = new AdminProductService();
-		List<Product> productList = null;
+		PageBean<Product> pageBean = null;
+		String getCurrentPage = request.getParameter("currentPage");
+		
+		int currentPage = 1;
+		if (getCurrentPage != null)
+			currentPage = Integer.parseInt(getCurrentPage);
+		int currentCount = 2;
+		
 		try {
-			 productList = service.findAllProduct();
+			pageBean = service.getPageBean(currentPage, currentCount);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		List<Category> categoryList = null;
-		try {
-			categoryList = service.findAllCategory();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		request.setAttribute("categoryList", categoryList);
-		
-		request.setAttribute("productList", productList);
-		request.getRequestDispatcher("/admin/product/list.jsp").forward(request, response);
+		request.setAttribute("pageBean", pageBean);
+		request.getRequestDispatcher("/product_list.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

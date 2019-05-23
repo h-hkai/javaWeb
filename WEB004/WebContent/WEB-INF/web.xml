@@ -92,4 +92,24 @@
     <servlet-name>AdminUpdateProduct</servlet-name>
     <url-pattern>/adminUpdateProduct</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminSearchProduct</display-name>
+    <servlet-name>AdminSearchProduct</servlet-name>
+    <servlet-class>web.AdminSearchProduct</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminSearchProduct</servlet-name>
+    <url-pattern>/adminSearchProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductListServlet</display-name>
+    <servlet-name>ProductListServlet</servlet-name>
+    <servlet-class>web.ProductListServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductListServlet</servlet-name>
+    <url-pattern>/productListServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
