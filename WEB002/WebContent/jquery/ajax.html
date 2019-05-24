@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script type="text/javascript" src="/WEB002/js/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript">
+
+	function fn1() {
+		$.get(
+			"/WEB002/jqueryAjaxServlet",
+			{"name":"Tom", "age":26},
+			function(data) {
+				alert(data);
+			},
+			"text"
+		);
+		
+	}
+	
+	function fn2() {
+		$.post(
+				"/WEB002/jqueryAjaxServlet",
+				{"name":"Hugo", "age":62},
+				function(data) {
+					alert(data);
+				},
+				"text"
+		);
+	}
+	
+	function fn3() {
+		$.ajax({
+			type:"GET",
+			async:true,
+			url:"/WEB002/jqueryAjaxServlet",
+			data:{"name":"Hugo", "age":62},
+			success:function(data) {
+				alert(data);
+			},
+			error:function() {
+				alert("query error!");
+			},
+			dataType:"text"
+		});
+	}
+
+</script>
+
+<body>
+
+	<input type="button" value="get" onclick="fn1()"><br>
+	<input type="button" value="post" onclick="fn2()"><br>
+	<input type="button" value="ajax" onclick="fn3()"><br>
+</body>
+</html>
