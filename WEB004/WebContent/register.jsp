@@ -112,6 +112,29 @@ font {
             }
         });
     });
+    
+    $(function() {
+    	$("#username").blur(function() {
+    		var usernameInput = $(this).val();
+    		$.post(
+    			"${pageContext.request.contextPath}/checkUserName",
+    			{"username":usernameInput},
+    			function(data) {
+    				var usernameInfo = "";
+    				var isExist = data.isExist;
+    				if (isExist) {
+    					usernameInfo = "This name has been used!";
+    					$("#usernameInfo").css("color", "red");
+    				} else {
+    					usernameInfo = "This name has not been used!";
+    				}
+    				$("#usernameInfo").html(usernameInfo);
+    			},
+    			"json"
+    		
+    		);
+    	})
+    });
 </script>
 
 </head>
@@ -133,6 +156,7 @@ font {
 						<div class="col-sm-6">
 							<input type="text" class="form-control" id="username" name="username"
 								placeholder="请输入用户名">
+							<span id="usernameInfo"></span>
 						</div>
 					</div>
 					<div class="form-group">
