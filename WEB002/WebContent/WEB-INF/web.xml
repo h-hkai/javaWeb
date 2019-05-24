@@ -37,15 +37,10 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
-  
-  
   <context-param>
-  	<param-name>aaa</param-name>
-  	<param-value>xxxx</param-value>
+    <param-name>aaa</param-name>
+    <param-value>xxxx</param-value>
   </context-param>
-  
-  
-  
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>

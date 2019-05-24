@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script type="text/javascript">
+
+	function fn1() {
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.onreadystatechange = function() {
+			
+			if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+				var res = xmlHttp.responseText;
+				document.getElementById("span1").innerHTML = res;
+			} 
+		}
+		
+		xmlHttp.open("GET", "/WEB002/ajaxServlet?name=ellen", true);
+		xmlHttp.send();
+	}
+
+	function fn2() {
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.onreadystatechange = function() {
+			
+			if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+				var res = xmlHttp.responseText;
+				document.getElementById("span2").innerHTML = res;
+			} 
+		}
+		
+		xmlHttp.open("POST", "/WEB002/ajaxServlet", false);
+		xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xmlHttp.send("name=Hugo");
+	}
+
+
+</script>
+
+<body>
+	<input type="button" value="ajax" onclick="fn1()"><span id="span1"></span>
+	<br>
+	<input type="button" value="sync" onclick="fn2()"><span id="span2"></span>
+	<br>
+	<input type="button" value="test" onclick="alert()">
+</body>
+</html>
