@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+    <Manager className="org.apache.catalina.session.PersistentManager" maxIdleSwap="1">  
+	    <!--maxIdleSwap="1" 表示一分钟没有操作 单位为分钟-->  
+	    <Store className="org.apache.catalina.session.FileStore" directory="mysession"></Store> 
+	    <!--directory="mysession" 存到硬盘的目录文件夹名-->  
+  	</Manager>
+    
+</Context>
