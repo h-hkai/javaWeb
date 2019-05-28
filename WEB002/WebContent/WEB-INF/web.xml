@@ -12,6 +12,21 @@
     <param-name>driver</param-name>
     <param-value>com.mysql.jdbc.Driver</param-value>
   </context-param>
+  
+  <filter>
+  	<filter-name>QuickFilter1</filter-name>
+  	<filter-class>filter.QuickFilter</filter-class>
+  	<init-param>
+  		<param-name>aaa</param-name>
+  		<param-value>AAA</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>QuickFilter1</filter-name>
+  	<url-pattern>/*</url-pattern>
+  	<dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+
   <servlet>
     <servlet-name>abc</servlet-name>
     <servlet-class>servlet.QuickStartServlet</servlet-class>
